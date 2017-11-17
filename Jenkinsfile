@@ -18,4 +18,13 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+          step([$class: 'Mailer',
+            notifyEveryUnstableBuild: true,
+            recipients: "thvnbx@aol.com",
+            sendToIndividuals: true])
+        }
+      }
+    }
 }
